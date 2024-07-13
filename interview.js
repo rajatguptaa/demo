@@ -7,7 +7,6 @@ Input s1: abcdxyz
 s2: xyzabcd
 Output: abcd
 */
-
 function longestSubString(s1,s2) {
     if(s1.length < 0 || s2.length < 0){
         return ""
