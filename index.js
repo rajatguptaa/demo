@@ -73,16 +73,24 @@ app.set('view engine', 'hbs');
 app.set('views', 'views');
 
 app.use(webRoutes);
+const router1 = express.Router();
+router1.get("/heartbeat",(request,response)=>{
+	response.json({"message":"ok"})
+})
+app.use(router1);
 app.use(errorController.pageNotFound);
 
-sequelize
-	//.sync({force : true})
-	.sync()
-	.then(() => {
-		app.listen(process.env.PORT);
+// sequelize
+// 	//.sync({force : true})
+// 	.sync()
+// 	.then(() => {
+// 		app.listen(process.env.PORT);
+// 		//pending set timezone
+// 		console.log("App listening on port " + process.env.PORT);
+// 	})
+// 	.catch(err => {
+// 		console.log(err);
+// 	});
+app.listen(3000);
 		//pending set timezone
-		console.log("App listening on port " + process.env.PORT);
-	})
-	.catch(err => {
-		console.log(err);
-	});
+		console.log("App listening on port " + 3000);
